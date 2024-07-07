@@ -182,3 +182,24 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+
+
+function showQRCode(element) {
+  var modal = document.getElementById("imageModal");
+  var modalImage = document.getElementById("modalImage");
+  modalImage.src = element.getAttribute("data-qrcode");
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  var modal = document.getElementById("imageModal");
+  modal.style.display = "none";
+}
+
+// Đóng modal khi người dùng bấm bên ngoài modal
+window.onclick = function(event) {
+  var modal = document.getElementById("imageModal");
+  if (event.target == modal) {
+      modal.style.display = "none";
+  }
+}
